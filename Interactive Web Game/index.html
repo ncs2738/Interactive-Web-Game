@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <script>
+        function dropped(event)
+        {
+            event.preventDefault();
+
+            /*
+            alert(event.dataTransfer.files[0]);
+            alert(event.dataTransfer.files[0].name);
+            alert(event.dataTransfer.files[0].size+" bytes"); 
+            */
+
+            /*need to restrict to only images being dropped*/
+            
+            var input = event.dataTransfer.items;
+            var picture = input[0].getAsFile();
+
+            var output = document.getElementById('output');
+            output.src = URL.createObjectURL(picture);
+            
+            document.getElementById("drop-box").style.backgroundColor = "lightblue";  
+            
+        }
+
+        var loadFile = function(event) {
+           /* alert(event.target.files[0].name); */
+
+           /*need to restrict to images only*/
+           /*need to do check on output to see if the image has changed*/
+
+            var output = document.getElementById('output');
+            output.src = URL.createObjectURL(event.target.files[0]);
+        };
+
+        
+        /*FOR FORMS: <form action="/action_page.php">*/
+    </script>
+
+    <h1>FILE UPLOAD ZONE</h1>
+
+    <div id="drop-box" ondrop="dropped(event)" ondragover="return false">
+        <img id="output"/>
+    </div>
+
+    <br>
+
+    <div id="choose-file">    
+        <input type="file" accept="image" onchange="loadFile(event)">
+    </div>
+
+
+    <div id="answers">
+        <form> 
+            <h1>What is it?</h1>
+            <input type="text" name="answer"><br>
+
+            <h1>Please give 3 incorrect answers</h1>
+
+            <h2>Possibility 1:</h2>
+            <input type="text" name="pos1"><br>
+            <h2>Possibility 2:</h2>
+            <input type="text" name="pos2"><br>
+            <h2>Possibility 3:</h2>
+            <input type="text" name="pos3"><br>
+
+            <h1>Please input your name</h1>
+            First name: <input type="text" name="dname">&emsp;&emsp;
+            Last name: <input type="text" name="kname"><br><br>
+    
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+</body>
+
+</html>

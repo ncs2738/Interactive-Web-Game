@@ -1,0 +1,38 @@
+*
+{
+    text-align: center;
+}
+
+body
+{
+background-color: white;
+}
+
+#drop-box {
+    width:fit-content;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: rgb(245, 245, 245); 
+    border:#75787B 5px dashed;
+    border-radius: 20px;
+    
+    width: 480px; 
+    height: 350px;
+    padding: 8px;
+    font-size: 18px;
+}
+
+#output
+{
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    
+}
+
+#choose-file
+{
+margin-left:7%;
+margin-right: auto;
+}
